@@ -11,6 +11,5 @@ Features:
 2. ASP.NET like syntax and patterns. It's clean, extensible and familiar.
 3. It's fast.
 
-EmbeddedServer best fits in the following scenarios:
-1. You want a single `dll` library with no external dependencies.
-2. You want to host a web server inside 
+EmbeddedServer fits best in the following scenarios:
+1. You want a single assembly dependency that has no other dependencies.

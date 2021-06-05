@@ -1,0 +1,1394 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EmbeddedServer</name>
+    </assembly>
+    <members>
+        <member name="T:EmbeddedServer.Attributes.HttpDeleteAttribute">
+            <summary>
+            Identifies an action that only supports the HTTP DELETE method.
+            </summary>
+        </member>
+        <member name="M:EmbeddedServer.Attributes.HttpDeleteAttribute.#ctor(System.String)">
+            <summary>
+            Creates a new <see cref="T:EmbeddedServer.Attributes.HttpDeleteAttribute"/> with the given route template.
+            </summary>
+            <param name="template">The route template. May not be null.</param>
+        </member>
+        <member name="T:EmbeddedServer.Attributes.HttpGetAttribute">
+            <summary>
+            Identifies an action that only supports the HTTP GET method.
+            </summary>
+        </member>
+        <member name="M:EmbeddedServer.Attributes.HttpGetAttribute.#ctor(System.String)">
+            <summary>
+            Creates a new <see cref="T:EmbeddedServer.Attributes.HttpGetAttribute"/> with the given route template.
+            </summary>
+            <param name="template">The route template. May not be null.</param>
+        </member>
+        <member name="T:EmbeddedServer.Attributes.HttpHeadAttribute">
+            <summary>
+            Identifies an action that only supports the HTTP HEAD method.
+            </summary>
+        </member>
+        <member name="M:EmbeddedServer.Attributes.HttpHeadAttribute.#ctor(System.String)">
+            <summary>
+            Creates a new <see cref="T:EmbeddedServer.Attributes.HttpHeadAttribute"/> with the given route template.
+            </summary>
+            <param name="template">The route template. May not be null.</param>
+        </member>
+        <member name="T:EmbeddedServer.Attributes.HttpMethodAttribute">
+            <summary>
+            Identifies an action that only supports a given set of HTTP methods.
+            </summary>
+        </member>
+        <member name="M:EmbeddedServer.Attributes.HttpMethodAttribute.#ctor(System.Collections.Generic.IReadOnlyCollection{System.String})">
+            <summary>
+            Creates a new <see cref="T:EmbeddedServer.Attributes.HttpMethodAttribute"/> with the given
+            set of HTTP methods.
+            <param name="httpMethods">The set of supported HTTP methods.</param>
+            </summary>
+        </member>
+        <member name="M:EmbeddedServer.Attributes.HttpMethodAttribute.#ctor(System.Collections.Generic.IReadOnlyCollection{System.String},System.String)">
+            <summary>
+            Creates a new <see cref="T:EmbeddedServer.Attributes.HttpMethodAttribute"/> with the given
+            set of HTTP methods an the given route template.
+            </summary>
+            <param name="httpMethods">The set of supported methods.</param>
+            <param name="template">The route template. May not be null.</param>
+        </member>
+        <member name="P:EmbeddedServer.Attributes.HttpMethodAttribute.Template">
+            <summary>
+            The route template. May be null.
+            </summary>
+        </member>
+        <member name="P:EmbeddedServer.Attributes.HttpMethodAttribute.HttpMethods">
+            <inheritdoc />
+        </member>
+        <member name="P:EmbeddedServer.Attributes.HttpMethodAttribute.Order">
+            <summary>
+            Gets the route order. The order determines the order of route execution. Routes with a lower
+            order value are tried first. When a route doesn't specify a value, it gets the value of the
+            <see cref="!:RouteAttribute.Order"/> or a default value of 0 if the <see cref="!:RouteAttribute"/>
+            doesn't define a value on the controller.
+            </summary>
+        </member>
+        <member name="T:EmbeddedServer.Attributes.HttpOptionsAttribute">
+            <summary>
+            Identifies an action that only supports the HTTP OPTIONS method.
+            </summary>
+        </member>
+        <member name="M:EmbeddedServer.Attributes.HttpOptionsAttribute.#ctor(System.String)">
+            <summary>
+            Creates a new <see cref="T:EmbeddedServer.Attributes.HttpOptionsAttribute"/> with the given route template.
+            </summary>
+            <param name="template">The route template. May not be null.</param>
+        </member>
+        <member name="T:EmbeddedServer.Attributes.HttpPatchAttribute">
+            <summary>
+            Identifies an action that only supports the HTTP PATCH method.
+            </summary>
+        </member>
+        <member name="M:EmbeddedServer.Attributes.HttpPatchAttribute.#ctor(System.String)">
+            <summary>
+            Creates a new <see cref="T:EmbeddedServer.Attributes.HttpPatchAttribute"/> with the given route template.
+            </summary>
+            <param name="template">The route template. May not be null.</param>
+        </member>
+        <member name="T:EmbeddedServer.Attributes.HttpPostAttribute">
+            <summary>
+            Identifies an action that only supports the HTTP POST method.
+            </summary>
+        </member>
+        <member name="M:EmbeddedServer.Attributes.HttpPostAttribute.#ctor(System.String)">
+            <summary>
+            Creates a new <see cref="T:EmbeddedServer.Attributes.HttpPostAttribute"/> with the given route template.
+            </summary>
+            <param name="template">The route template. May not be null.</param>
+        </member>
+        <member name="T:EmbeddedServer.Attributes.HttpPutAttribute">
+            <summary>
+            Identifies an action that only supports the HTTP PUT method.
+            </summary>
+        </member>
+        <member name="M:EmbeddedServer.Attributes.HttpPutAttribute.#ctor(System.String)">
+            <summary>
+            Creates a new <see cref="T:EmbeddedServer.Attributes.HttpPutAttribute"/> with the given route template.
+            </summary>
+            <param name="template">The route template. May not be null.</param>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TypeExtensions.GetGenericMethod(System.Type,System.Reflection.BindingFlags,System.String,System.Type[],System.Type[])">
+            <summary>
+            Gets a generic method from a type given the method name, binding flags, generic types and parameter types
+            </summary>
+            <param name="sourceType">Source type</param>
+            <param name="bindingFlags">Binding flags</param>
+            <param name="methodName">Name of the method</param>
+            <param name="genericTypes">Generic types to use to make the method generic</param>
+            <param name="parameterTypes">Method parameters</param>
+            <returns>MethodInfo or null if no matches found</returns>
+            <exception cref="T:System.Reflection.AmbiguousMatchException"/>
+            <exception cref="T:System.ArgumentException"/>
+        </member>
+        <member name="T:EmbeddedServer.DependencyInjection.NamedParameterOverloads">
+            <summary>
+            Name/Value pairs for specifying "user" parameters when resolving
+            </summary>
+        </member>
+        <member name="F:EmbeddedServer.DependencyInjection.UnregisteredResolutionActions.AttemptResolve">
+            <summary>
+            Attempt to resolve type, even if the type isn't registered.
+            
+            Registered types/options will always take precedence.
+            </summary>
+        </member>
+        <member name="F:EmbeddedServer.DependencyInjection.UnregisteredResolutionActions.Fail">
+            <summary>
+            Fail resolution if type not explicitly registered
+            </summary>
+        </member>
+        <member name="F:EmbeddedServer.DependencyInjection.UnregisteredResolutionActions.GenericsOnly">
+            <summary>
+            Attempt to resolve unregistered type if requested type is generic
+            and no registration exists for the specific generic parameters used.
+            
+            Registered types/options will always take precedence.
+            </summary>
+        </member>
+        <member name="T:EmbeddedServer.DependencyInjection.ResolveOptions">
+            <summary>
+            Resolution settings
+            </summary>
+        </member>
+        <member name="P:EmbeddedServer.DependencyInjection.ResolveOptions.Default">
+            <summary>
+            Gets the default options (attempt resolution of unregistered types, fail on named resolution if name not found)
+            </summary>
+        </member>
+        <member name="P:EmbeddedServer.DependencyInjection.ResolveOptions.FailNameNotFoundOnly">
+            <summary>
+            Preconfigured option for attempting resolution of unregistered types and failing on named resolution if name not found
+            </summary>
+        </member>
+        <member name="P:EmbeddedServer.DependencyInjection.ResolveOptions.FailUnregisteredAndNameNotFound">
+            <summary>
+            Preconfigured option for failing on resolving unregistered types and on named resolution if name not found
+            </summary>
+        </member>
+        <member name="P:EmbeddedServer.DependencyInjection.ResolveOptions.FailUnregisteredOnly">
+            <summary>
+            Preconfigured option for failing on resolving unregistered types, but attempting unnamed resolution if name not found
+            </summary>
+        </member>
+        <member name="T:EmbeddedServer.DependencyInjection.TinyIoCContainer.RegisterOptions">
+            <summary>
+            Registration options for "fluent" API
+            </summary>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.RegisterOptions.AsSingleton">
+            <summary>
+            Make registration a singleton (single instance) if possible
+            </summary>
+            <returns>RegisterOptions</returns>
+            <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCRegistrationException"></exception>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.RegisterOptions.AsMultiInstance">
+            <summary>
+            Make registration multi-instance if possible
+            </summary>
+            <returns>RegisterOptions</returns>
+            <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCRegistrationException"></exception>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.RegisterOptions.WithWeakReference">
+            <summary>
+            Make registration hold a weak reference if possible
+            </summary>
+            <returns>RegisterOptions</returns>
+            <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCRegistrationException"></exception>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.RegisterOptions.WithStrongReference">
+            <summary>
+            Make registration hold a strong reference if possible
+            </summary>
+            <returns>RegisterOptions</returns>
+            <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCRegistrationException"></exception>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.RegisterOptions.ToCustomLifetimeManager(EmbeddedServer.DependencyInjection.TinyIoCContainer.RegisterOptions,EmbeddedServer.DependencyInjection.TinyIoCContainer.ITinyIoCObjectLifetimeProvider,System.String)">
+            <summary>
+            Switches to a custom lifetime manager factory if possible.
+            
+            Usually used for RegisterOptions "To*" extension methods such as the ASP.Net per-request one.
+            </summary>
+            <param name="instance">RegisterOptions instance</param>
+            <param name="lifetimeProvider">Custom lifetime manager</param>
+            <param name="errorString">Error string to display if switch fails</param>
+            <returns>RegisterOptions</returns>
+        </member>
+        <member name="T:EmbeddedServer.DependencyInjection.TinyIoCContainer.MultiRegisterOptions">
+            <summary>
+            Registration options for "fluent" API when registering multiple implementations
+            </summary>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.MultiRegisterOptions.#ctor(System.Collections.Generic.IEnumerable{EmbeddedServer.DependencyInjection.TinyIoCContainer.RegisterOptions})">
+            <summary>
+            Initializes a new instance of the MultiRegisterOptions class.
+            </summary>
+            <param name="registerOptions">Registration options</param>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.MultiRegisterOptions.AsSingleton">
+            <summary>
+            Make registration a singleton (single instance) if possible
+            </summary>
+            <returns>RegisterOptions</returns>
+            <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCRegistrationException"></exception>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.MultiRegisterOptions.AsMultiInstance">
+            <summary>
+            Make registration multi-instance if possible
+            </summary>
+            <returns>MultiRegisterOptions</returns>
+            <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCRegistrationException"></exception>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.MultiRegisterOptions.ToCustomLifetimeManager(EmbeddedServer.DependencyInjection.TinyIoCContainer.MultiRegisterOptions,EmbeddedServer.DependencyInjection.TinyIoCContainer.ITinyIoCObjectLifetimeProvider,System.String)">
+            <summary>
+            Switches to a custom lifetime manager factory if possible.
+            
+            Usually used for RegisterOptions "To*" extension methods such as the ASP.Net per-request one.
+            </summary>
+            <param name="instance">MultiRegisterOptions instance</param>
+            <param name="lifetimeProvider">Custom lifetime manager</param>
+            <param name="errorString">Error string to display if switch fails</param>
+            <returns>MultiRegisterOptions</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.AutoRegister">
+            <summary>
+            Attempt to automatically register all non-generic classes and interfaces in the current app domain.
+            
+            If more than one class implements an interface then only one implementation will be registered
+            although no error will be thrown.
+            </summary>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.AutoRegister(System.Func{System.Type,System.Boolean})">
+            <summary>
+            Attempt to automatically register all non-generic classes and interfaces in the current app domain.
+            Types will only be registered if they pass the supplied registration predicate.
+            
+            If more than one class implements an interface then only one implementation will be registered
+            although no error will be thrown.
+            </summary>
+            <param name="registrationPredicate">Predicate to determine if a particular type should be registered</param>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.AutoRegister(EmbeddedServer.DependencyInjection.DuplicateImplementationActions)">
+            <summary>
+            Attempt to automatically register all non-generic classes and interfaces in the current app domain.
+            </summary>
+            <param name="duplicateAction">What action to take when encountering duplicate implementations of an interface/base class.</param>
+            <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCAutoRegistrationException"/>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.AutoRegister(EmbeddedServer.DependencyInjection.DuplicateImplementationActions,System.Func{System.Type,System.Boolean})">
+            <summary>
+            Attempt to automatically register all non-generic classes and interfaces in the current app domain.
+            Types will only be registered if they pass the supplied registration predicate.
+            </summary>
+            <param name="duplicateAction">What action to take when encountering duplicate implementations of an interface/base class.</param>
+            <param name="registrationPredicate">Predicate to determine if a particular type should be registered</param>
+            <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCAutoRegistrationException"/>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.AutoRegister(System.Collections.Generic.IEnumerable{System.Reflection.Assembly})">
+            <summary>
+            Attempt to automatically register all non-generic classes and interfaces in the specified assemblies
+            
+            If more than one class implements an interface then only one implementation will be registered
+            although no error will be thrown.
+            </summary>
+            <param name="assemblies">Assemblies to process</param>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.AutoRegister(System.Collections.Generic.IEnumerable{System.Reflection.Assembly},System.Func{System.Type,System.Boolean})">
+            <summary>
+            Attempt to automatically register all non-generic classes and interfaces in the specified assemblies
+            Types will only be registered if they pass the supplied registration predicate.
+            
+            If more than one class implements an interface then only one implementation will be registered
+            although no error will be thrown.
+            </summary>
+            <param name="assemblies">Assemblies to process</param>
+            <param name="registrationPredicate">Predicate to determine if a particular type should be registered</param>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.AutoRegister(System.Collections.Generic.IEnumerable{System.Reflection.Assembly},EmbeddedServer.DependencyInjection.DuplicateImplementationActions)">
+            <summary>
+            Attempt to automatically register all non-generic classes and interfaces in the specified assemblies
+            </summary>
+            <param name="assemblies">Assemblies to process</param>
+            <param name="duplicateAction">What action to take when encountering duplicate implementations of an interface/base class.</param>
+            <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCAutoRegistrationException"/>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.AutoRegister(System.Collections.Generic.IEnumerable{System.Reflection.Assembly},EmbeddedServer.DependencyInjection.DuplicateImplementationActions,System.Func{System.Type,System.Boolean})">
+            <summary>
+            Attempt to automatically register all non-generic classes and interfaces in the specified assemblies
+            Types will only be registered if they pass the supplied registration predicate.
+            </summary>
+            <param name="assemblies">Assemblies to process</param>
+            <param name="duplicateAction">What action to take when encountering duplicate implementations of an interface/base class.</param>
+            <param name="registrationPredicate">Predicate to determine if a particular type should be registered</param>
+            <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCAutoRegistrationException"/>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Register(System.Type)">
+            <summary>
+            Creates/replaces a container class registration with default options.
+            </summary>
+            <param name="registerType">Type to register</param>
+            <returns>RegisterOptions for fluent API</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Register(System.Type,System.String)">
+            <summary>
+            Creates/replaces a named container class registration with default options.
+            </summary>
+            <param name="registerType">Type to register</param>
+            <param name="name">Name of registration</param>
+            <returns>RegisterOptions for fluent API</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Register(System.Type,System.Type)">
+            <summary>
+            Creates/replaces a container class registration with a given implementation and default options.
+            </summary>
+            <param name="registerType">Type to register</param>
+            <param name="registerImplementation">Type to instantiate that implements RegisterType</param>
+            <returns>RegisterOptions for fluent API</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Register(System.Type,System.Type,System.String)">
+            <summary>
+            Creates/replaces a named container class registration with a given implementation and default options.
+            </summary>
+            <param name="registerType">Type to register</param>
+            <param name="registerImplementation">Type to instantiate that implements RegisterType</param>
+            <param name="name">Name of registration</param>
+            <returns>RegisterOptions for fluent API</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Register(System.Type,System.Object)">
+            <summary>
+            Creates/replaces a container class registration with a specific, strong referenced, instance.
+            </summary>
+            <param name="registerType">Type to register</param>
+            <param name="instance">Instance of RegisterType to register</param>
+            <returns>RegisterOptions for fluent API</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Register(System.Type,System.Object,System.String)">
+            <summary>
+            Creates/replaces a named container class registration with a specific, strong referenced, instance.
+            </summary>
+            <param name="registerType">Type to register</param>
+            <param name="instance">Instance of RegisterType to register</param>
+            <param name="name">Name of registration</param>
+            <returns>RegisterOptions for fluent API</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Register(System.Type,System.Type,System.Object)">
+            <summary>
+            Creates/replaces a container class registration with a specific, strong referenced, instance.
+            </summary>
+            <param name="registerType">Type to register</param>
+            <param name="registerImplementation">Type of instance to register that implements RegisterType</param>
+            <param name="instance">Instance of RegisterImplementation to register</param>
+            <returns>RegisterOptions for fluent API</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Register(System.Type,System.Type,System.Object,System.String)">
+            <summary>
+            Creates/replaces a named container class registration with a specific, strong referenced, instance.
+            </summary>
+            <param name="registerType">Type to register</param>
+            <param name="registerImplementation">Type of instance to register that implements RegisterType</param>
+            <param name="instance">Instance of RegisterImplementation to register</param>
+            <param name="name">Name of registration</param>
+            <returns>RegisterOptions for fluent API</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Register(System.Type,System.Func{EmbeddedServer.DependencyInjection.TinyIoCContainer,EmbeddedServer.DependencyInjection.NamedParameterOverloads,System.Object})">
+            <summary>
+            Creates/replaces a container class registration with a user specified factory
+            </summary>
+            <param name="registerType">Type to register</param>
+            <param name="factory">Factory/lambda that returns an instance of RegisterType</param>
+            <returns>RegisterOptions for fluent API</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Register(System.Type,System.Func{EmbeddedServer.DependencyInjection.TinyIoCContainer,EmbeddedServer.DependencyInjection.NamedParameterOverloads,System.Object},System.String)">
+            <summary>
+            Creates/replaces a container class registration with a user specified factory
+            </summary>
+            <param name="registerType">Type to register</param>
+            <param name="factory">Factory/lambda that returns an instance of RegisterType</param>
+            <param name="name">Name of registration</param>
+            <returns>RegisterOptions for fluent API</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Register``1">
+            <summary>
+            Creates/replaces a container class registration with default options.
+            </summary>
+            <typeparam name="RegisterType">Type to register</typeparam>
+            <returns>RegisterOptions for fluent API</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Register``1(System.String)">
+            <summary>
+            Creates/replaces a named container class registration with default options.
+            </summary>
+            <typeparam name="RegisterType">Type to register</typeparam>
+            <param name="name">Name of registration</param>
+            <returns>RegisterOptions for fluent API</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Register``2">
+            <summary>
+            Creates/replaces a container class registration with a given implementation and default options.
+            </summary>
+            <typeparam name="RegisterType">Type to register</typeparam>
+            <typeparam name="RegisterImplementation">Type to instantiate that implements RegisterType</typeparam>
+            <returns>RegisterOptions for fluent API</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Register``2(System.String)">
+            <summary>
+            Creates/replaces a named container class registration with a given implementation and default options.
+            </summary>
+            <typeparam name="RegisterType">Type to register</typeparam>
+            <typeparam name="RegisterImplementation">Type to instantiate that implements RegisterType</typeparam>
+            <param name="name">Name of registration</param>
+            <returns>RegisterOptions for fluent API</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Register``1(``0)">
+            <summary>
+            Creates/replaces a container class registration with a specific, strong referenced, instance.
+            </summary>
+            <typeparam name="RegisterType">Type to register</typeparam>
+            <param name="instance">Instance of RegisterType to register</param>
+            <returns>RegisterOptions for fluent API</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Register``1(``0,System.String)">
+            <summary>
+            Creates/replaces a named container class registration with a specific, strong referenced, instance.
+            </summary>
+            <typeparam name="RegisterType">Type to register</typeparam>
+            <param name="instance">Instance of RegisterType to register</param>
+            <param name="name">Name of registration</param>
+            <returns>RegisterOptions for fluent API</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Register``2(``1)">
+            <summary>
+            Creates/replaces a container class registration with a specific, strong referenced, instance.
+            </summary>
+            <typeparam name="RegisterType">Type to register</typeparam>
+            <typeparam name="RegisterImplementation">Type of instance to register that implements RegisterType</typeparam>
+            <param name="instance">Instance of RegisterImplementation to register</param>
+            <returns>RegisterOptions for fluent API</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Register``2(``1,System.String)">
+            <summary>
+            Creates/replaces a named container class registration with a specific, strong referenced, instance.
+            </summary>
+            <typeparam name="RegisterType">Type to register</typeparam>
+            <typeparam name="RegisterImplementation">Type of instance to register that implements RegisterType</typeparam>
+            <param name="instance">Instance of RegisterImplementation to register</param>
+            <param name="name">Name of registration</param>
+            <returns>RegisterOptions for fluent API</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Register``1(System.Func{EmbeddedServer.DependencyInjection.TinyIoCContainer,EmbeddedServer.DependencyInjection.NamedParameterOverloads,``0})">
+            <summary>
+            Creates/replaces a container class registration with a user specified factory
+            </summary>
+            <typeparam name="RegisterType">Type to register</typeparam>
+            <param name="factory">Factory/lambda that returns an instance of RegisterType</param>
+            <returns>RegisterOptions for fluent API</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Register``1(System.Func{EmbeddedServer.DependencyInjection.TinyIoCContainer,EmbeddedServer.DependencyInjection.NamedParameterOverloads,``0},System.String)">
+            <summary>
+            Creates/replaces a named container class registration with a user specified factory
+            </summary>
+            <typeparam name="RegisterType">Type to register</typeparam>
+            <param name="factory">Factory/lambda that returns an instance of RegisterType</param>
+            <param name="name">Name of registration</param>
+            <returns>RegisterOptions for fluent API</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.RegisterMultiple``1(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Register multiple implementations of a type.
+            
+            Internally this registers each implementation using the full name of the class as its registration name.
+            </summary>
+            <typeparam name="RegisterType">Type that each implementation implements</typeparam>
+            <param name="implementationTypes">Types that implement RegisterType</param>
+            <returns>MultiRegisterOptions for the fluent API</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.RegisterMultiple(System.Type,System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Register multiple implementations of a type.
+            
+            Internally this registers each implementation using the full name of the class as its registration name.
+            </summary>
+            <param name="registrationType">Type that each implementation implements</param>
+            <param name="implementationTypes">Types that implement RegisterType</param>
+            <returns>MultiRegisterOptions for the fluent API</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Unregister``1">
+            <summary>
+            Remove a container class registration.
+            </summary>
+            <typeparam name="RegisterType">Type to unregister</typeparam>
+            <returns>true if the registration is successfully found and removed; otherwise, false.</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Unregister``1(System.String)">
+            <summary>
+            Remove a named container class registration.
+            </summary>
+            <typeparam name="RegisterType">Type to unregister</typeparam>
+            <param name="name">Name of registration</param>
+            <returns>true if the registration is successfully found and removed; otherwise, false.</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Unregister(System.Type)">
+            <summary>
+            Remove a container class registration.
+            </summary>
+            <param name="registerType">Type to unregister</param>
+            <returns>true if the registration is successfully found and removed; otherwise, false.</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Unregister(System.Type,System.String)">
+            <summary>
+            Remove a named container class registration.
+            </summary>
+            <param name="registerType">Type to unregister</param>
+            <param name="name">Name of registration</param>
+            <returns>true if the registration is successfully found and removed; otherwise, false.</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Resolve(System.Type)">
+            <summary>
+            Attempts to resolve a type using default options.
+            </summary>
+            <param name="resolveType">Type to resolve</param>
+            <returns>Instance of type</returns>
+            <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCResolutionException">Unable to resolve the type.</exception>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Resolve(System.Type,EmbeddedServer.DependencyInjection.ResolveOptions)">
+            <summary>
+            Attempts to resolve a type using specified options.
+            </summary>
+            <param name="resolveType">Type to resolve</param>
+            <param name="options">Resolution options</param>
+            <returns>Instance of type</returns>
+            <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCResolutionException">Unable to resolve the type.</exception>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Resolve(System.Type,System.String)">
+             <summary>
+             Attempts to resolve a type using default options and the supplied name.
+            
+             Parameters are used in conjunction with normal container resolution to find the most suitable constructor (if one exists).
+             All user supplied parameters must exist in at least one resolvable constructor of RegisterType or resolution will fail.
+             </summary>
+             <param name="resolveType">Type to resolve</param>
+             <param name="name">Name of registration</param>
+             <returns>Instance of type</returns>
+             <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCResolutionException">Unable to resolve the type.</exception>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Resolve(System.Type,System.String,EmbeddedServer.DependencyInjection.ResolveOptions)">
+             <summary>
+             Attempts to resolve a type using supplied options and  name.
+            
+             Parameters are used in conjunction with normal container resolution to find the most suitable constructor (if one exists).
+             All user supplied parameters must exist in at least one resolvable constructor of RegisterType or resolution will fail.
+             </summary>
+             <param name="resolveType">Type to resolve</param>
+             <param name="name">Name of registration</param>
+             <param name="options">Resolution options</param>
+             <returns>Instance of type</returns>
+             <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCResolutionException">Unable to resolve the type.</exception>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Resolve(System.Type,EmbeddedServer.DependencyInjection.NamedParameterOverloads)">
+             <summary>
+             Attempts to resolve a type using default options and the supplied constructor parameters.
+            
+             Parameters are used in conjunction with normal container resolution to find the most suitable constructor (if one exists).
+             All user supplied parameters must exist in at least one resolvable constructor of RegisterType or resolution will fail.
+             </summary>
+             <param name="resolveType">Type to resolve</param>
+             <param name="parameters">User specified constructor parameters</param>
+             <returns>Instance of type</returns>
+             <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCResolutionException">Unable to resolve the type.</exception>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Resolve(System.Type,EmbeddedServer.DependencyInjection.NamedParameterOverloads,EmbeddedServer.DependencyInjection.ResolveOptions)">
+             <summary>
+             Attempts to resolve a type using specified options and the supplied constructor parameters.
+            
+             Parameters are used in conjunction with normal container resolution to find the most suitable constructor (if one exists).
+             All user supplied parameters must exist in at least one resolvable constructor of RegisterType or resolution will fail.
+             </summary>
+             <param name="resolveType">Type to resolve</param>
+             <param name="parameters">User specified constructor parameters</param>
+             <param name="options">Resolution options</param>
+             <returns>Instance of type</returns>
+             <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCResolutionException">Unable to resolve the type.</exception>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Resolve(System.Type,System.String,EmbeddedServer.DependencyInjection.NamedParameterOverloads)">
+             <summary>
+             Attempts to resolve a type using default options and the supplied constructor parameters and name.
+            
+             Parameters are used in conjunction with normal container resolution to find the most suitable constructor (if one exists).
+             All user supplied parameters must exist in at least one resolvable constructor of RegisterType or resolution will fail.
+             </summary>
+             <param name="resolveType">Type to resolve</param>
+             <param name="parameters">User specified constructor parameters</param>
+             <param name="name">Name of registration</param>
+             <returns>Instance of type</returns>
+             <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCResolutionException">Unable to resolve the type.</exception>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Resolve(System.Type,System.String,EmbeddedServer.DependencyInjection.NamedParameterOverloads,EmbeddedServer.DependencyInjection.ResolveOptions)">
+             <summary>
+             Attempts to resolve a named type using specified options and the supplied constructor parameters.
+            
+             Parameters are used in conjunction with normal container resolution to find the most suitable constructor (if one exists).
+             All user supplied parameters must exist in at least one resolvable constructor of RegisterType or resolution will fail.
+             </summary>
+             <param name="resolveType">Type to resolve</param>
+             <param name="name">Name of registration</param>
+             <param name="parameters">User specified constructor parameters</param>
+             <param name="options">Resolution options</param>
+             <returns>Instance of type</returns>
+             <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCResolutionException">Unable to resolve the type.</exception>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Resolve``1">
+            <summary>
+            Attempts to resolve a type using default options.
+            </summary>
+            <typeparam name="ResolveType">Type to resolve</typeparam>
+            <returns>Instance of type</returns>
+            <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCResolutionException">Unable to resolve the type.</exception>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Resolve``1(EmbeddedServer.DependencyInjection.ResolveOptions)">
+            <summary>
+            Attempts to resolve a type using specified options.
+            </summary>
+            <typeparam name="ResolveType">Type to resolve</typeparam>
+            <param name="options">Resolution options</param>
+            <returns>Instance of type</returns>
+            <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCResolutionException">Unable to resolve the type.</exception>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Resolve``1(System.String)">
+             <summary>
+             Attempts to resolve a type using default options and the supplied name.
+            
+             Parameters are used in conjunction with normal container resolution to find the most suitable constructor (if one exists).
+             All user supplied parameters must exist in at least one resolvable constructor of RegisterType or resolution will fail.
+             </summary>
+             <typeparam name="ResolveType">Type to resolve</typeparam>
+             <param name="name">Name of registration</param>
+             <returns>Instance of type</returns>
+             <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCResolutionException">Unable to resolve the type.</exception>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Resolve``1(System.String,EmbeddedServer.DependencyInjection.ResolveOptions)">
+             <summary>
+             Attempts to resolve a type using supplied options and  name.
+            
+             Parameters are used in conjunction with normal container resolution to find the most suitable constructor (if one exists).
+             All user supplied parameters must exist in at least one resolvable constructor of RegisterType or resolution will fail.
+             </summary>
+             <typeparam name="ResolveType">Type to resolve</typeparam>
+             <param name="name">Name of registration</param>
+             <param name="options">Resolution options</param>
+             <returns>Instance of type</returns>
+             <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCResolutionException">Unable to resolve the type.</exception>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Resolve``1(EmbeddedServer.DependencyInjection.NamedParameterOverloads)">
+             <summary>
+             Attempts to resolve a type using default options and the supplied constructor parameters.
+            
+             Parameters are used in conjunction with normal container resolution to find the most suitable constructor (if one exists).
+             All user supplied parameters must exist in at least one resolvable constructor of RegisterType or resolution will fail.
+             </summary>
+             <typeparam name="ResolveType">Type to resolve</typeparam>
+             <param name="parameters">User specified constructor parameters</param>
+             <returns>Instance of type</returns>
+             <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCResolutionException">Unable to resolve the type.</exception>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Resolve``1(EmbeddedServer.DependencyInjection.NamedParameterOverloads,EmbeddedServer.DependencyInjection.ResolveOptions)">
+             <summary>
+             Attempts to resolve a type using specified options and the supplied constructor parameters.
+            
+             Parameters are used in conjunction with normal container resolution to find the most suitable constructor (if one exists).
+             All user supplied parameters must exist in at least one resolvable constructor of RegisterType or resolution will fail.
+             </summary>
+             <typeparam name="ResolveType">Type to resolve</typeparam>
+             <param name="parameters">User specified constructor parameters</param>
+             <param name="options">Resolution options</param>
+             <returns>Instance of type</returns>
+             <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCResolutionException">Unable to resolve the type.</exception>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Resolve``1(System.String,EmbeddedServer.DependencyInjection.NamedParameterOverloads)">
+             <summary>
+             Attempts to resolve a type using default options and the supplied constructor parameters and name.
+            
+             Parameters are used in conjunction with normal container resolution to find the most suitable constructor (if one exists).
+             All user supplied parameters must exist in at least one resolvable constructor of RegisterType or resolution will fail.
+             </summary>
+             <typeparam name="ResolveType">Type to resolve</typeparam>
+             <param name="parameters">User specified constructor parameters</param>
+             <param name="name">Name of registration</param>
+             <returns>Instance of type</returns>
+             <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCResolutionException">Unable to resolve the type.</exception>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.Resolve``1(System.String,EmbeddedServer.DependencyInjection.NamedParameterOverloads,EmbeddedServer.DependencyInjection.ResolveOptions)">
+             <summary>
+             Attempts to resolve a named type using specified options and the supplied constructor parameters.
+            
+             Parameters are used in conjunction with normal container resolution to find the most suitable constructor (if one exists).
+             All user supplied parameters must exist in at least one resolvable constructor of RegisterType or resolution will fail.
+             </summary>
+             <typeparam name="ResolveType">Type to resolve</typeparam>
+             <param name="name">Name of registration</param>
+             <param name="parameters">User specified constructor parameters</param>
+             <param name="options">Resolution options</param>
+             <returns>Instance of type</returns>
+             <exception cref="T:EmbeddedServer.DependencyInjection.TinyIoCResolutionException">Unable to resolve the type.</exception>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.CanResolve(System.Type)">
+             <summary>
+             Attempts to predict whether a given type can be resolved with default options.
+            
+             Note: Resolution may still fail if user defined factory registrations fail to construct objects when called.
+             </summary>
+             <param name="resolveType">Type to resolve</param>
+             <returns>Bool indicating whether the type can be resolved</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.CanResolve(System.Type,System.String)">
+             <summary>
+             Attempts to predict whether a given named type can be resolved with default options.
+            
+             Note: Resolution may still fail if user defined factory registrations fail to construct objects when called.
+             </summary>
+             <param name="resolveType">Type to resolve</param>
+             <param name="name">Name of registration</param>
+             <returns>Bool indicating whether the type can be resolved</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.CanResolve(System.Type,EmbeddedServer.DependencyInjection.ResolveOptions)">
+             <summary>
+             Attempts to predict whether a given type can be resolved with the specified options.
+            
+             Note: Resolution may still fail if user defined factory registrations fail to construct objects when called.
+             </summary>
+             <param name="resolveType">Type to resolve</param>
+             <param name="options">Resolution options</param>
+             <returns>Bool indicating whether the type can be resolved</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.CanResolve(System.Type,System.String,EmbeddedServer.DependencyInjection.ResolveOptions)">
+             <summary>
+             Attempts to predict whether a given named type can be resolved with the specified options.
+            
+             Note: Resolution may still fail if user defined factory registrations fail to construct objects when called.
+             </summary>
+             <param name="resolveType">Type to resolve</param>
+             <param name="name">Name of registration</param>
+             <param name="options">Resolution options</param>
+             <returns>Bool indicating whether the type can be resolved</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.CanResolve(System.Type,EmbeddedServer.DependencyInjection.NamedParameterOverloads)">
+             <summary>
+             Attempts to predict whether a given type can be resolved with the supplied constructor parameters and default options.
+            
+             Parameters are used in conjunction with normal container resolution to find the most suitable constructor (if one exists).
+             All user supplied parameters must exist in at least one resolvable constructor of RegisterType or resolution will fail.
+             
+             Note: Resolution may still fail if user defined factory registrations fail to construct objects when called.
+             </summary>
+             <param name="resolveType">Type to resolve</param>
+             <param name="parameters">User supplied named parameter overloads</param>
+             <returns>Bool indicating whether the type can be resolved</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.CanResolve(System.Type,System.String,EmbeddedServer.DependencyInjection.NamedParameterOverloads)">
+             <summary>
+             Attempts to predict whether a given named type can be resolved with the supplied constructor parameters and default options.
+            
+             Parameters are used in conjunction with normal container resolution to find the most suitable constructor (if one exists).
+             All user supplied parameters must exist in at least one resolvable constructor of RegisterType or resolution will fail.
+             
+             Note: Resolution may still fail if user defined factory registrations fail to construct objects when called.
+             </summary>
+             <param name="resolveType">Type to resolve</param>
+             <param name="name">Name of registration</param>
+             <param name="parameters">User supplied named parameter overloads</param>
+             <returns>Bool indicating whether the type can be resolved</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.CanResolve(System.Type,EmbeddedServer.DependencyInjection.NamedParameterOverloads,EmbeddedServer.DependencyInjection.ResolveOptions)">
+             <summary>
+             Attempts to predict whether a given type can be resolved with the supplied constructor parameters options.
+            
+             Parameters are used in conjunction with normal container resolution to find the most suitable constructor (if one exists).
+             All user supplied parameters must exist in at least one resolvable constructor of RegisterType or resolution will fail.
+             
+             Note: Resolution may still fail if user defined factory registrations fail to construct objects when called.
+             </summary>
+             <param name="resolveType">Type to resolve</param>
+             <param name="parameters">User supplied named parameter overloads</param>
+             <param name="options">Resolution options</param>
+             <returns>Bool indicating whether the type can be resolved</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.CanResolve(System.Type,System.String,EmbeddedServer.DependencyInjection.NamedParameterOverloads,EmbeddedServer.DependencyInjection.ResolveOptions)">
+             <summary>
+             Attempts to predict whether a given named type can be resolved with the supplied constructor parameters options.
+            
+             Parameters are used in conjunction with normal container resolution to find the most suitable constructor (if one exists).
+             All user supplied parameters must exist in at least one resolvable constructor of RegisterType or resolution will fail.
+             
+             Note: Resolution may still fail if user defined factory registrations fail to construct objects when called.
+             </summary>
+             <param name="resolveType">Type to resolve</param>
+             <param name="name">Name of registration</param>
+             <param name="parameters">User supplied named parameter overloads</param>
+             <param name="options">Resolution options</param>
+             <returns>Bool indicating whether the type can be resolved</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.CanResolve``1">
+             <summary>
+             Attempts to predict whether a given type can be resolved with default options.
+            
+             Note: Resolution may still fail if user defined factory registrations fail to construct objects when called.
+             </summary>
+             <typeparam name="ResolveType">Type to resolve</typeparam>
+             <returns>Bool indicating whether the type can be resolved</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.CanResolve``1(System.String)">
+             <summary>
+             Attempts to predict whether a given named type can be resolved with default options.
+            
+             Note: Resolution may still fail if user defined factory registrations fail to construct objects when called.
+             </summary>
+             <typeparam name="ResolveType">Type to resolve</typeparam>
+             <returns>Bool indicating whether the type can be resolved</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.CanResolve``1(EmbeddedServer.DependencyInjection.ResolveOptions)">
+             <summary>
+             Attempts to predict whether a given type can be resolved with the specified options.
+            
+             Note: Resolution may still fail if user defined factory registrations fail to construct objects when called.
+             </summary>
+             <typeparam name="ResolveType">Type to resolve</typeparam>
+             <param name="options">Resolution options</param>
+             <returns>Bool indicating whether the type can be resolved</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.CanResolve``1(System.String,EmbeddedServer.DependencyInjection.ResolveOptions)">
+             <summary>
+             Attempts to predict whether a given named type can be resolved with the specified options.
+            
+             Note: Resolution may still fail if user defined factory registrations fail to construct objects when called.
+             </summary>
+             <typeparam name="ResolveType">Type to resolve</typeparam>
+             <param name="name">Name of registration</param>
+             <param name="options">Resolution options</param>
+             <returns>Bool indicating whether the type can be resolved</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.CanResolve``1(EmbeddedServer.DependencyInjection.NamedParameterOverloads)">
+             <summary>
+             Attempts to predict whether a given type can be resolved with the supplied constructor parameters and default options.
+            
+             Parameters are used in conjunction with normal container resolution to find the most suitable constructor (if one exists).
+             All user supplied parameters must exist in at least one resolvable constructor of RegisterType or resolution will fail.
+             
+             Note: Resolution may still fail if user defined factory registrations fail to construct objects when called.
+             </summary>
+             <typeparam name="ResolveType">Type to resolve</typeparam>
+             <param name="parameters">User supplied named parameter overloads</param>
+             <returns>Bool indicating whether the type can be resolved</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.CanResolve``1(System.String,EmbeddedServer.DependencyInjection.NamedParameterOverloads)">
+             <summary>
+             Attempts to predict whether a given named type can be resolved with the supplied constructor parameters and default options.
+            
+             Parameters are used in conjunction with normal container resolution to find the most suitable constructor (if one exists).
+             All user supplied parameters must exist in at least one resolvable constructor of RegisterType or resolution will fail.
+             
+             Note: Resolution may still fail if user defined factory registrations fail to construct objects when called.
+             </summary>
+             <typeparam name="ResolveType">Type to resolve</typeparam>
+             <param name="name">Name of registration</param>
+             <param name="parameters">User supplied named parameter overloads</param>
+             <returns>Bool indicating whether the type can be resolved</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.CanResolve``1(EmbeddedServer.DependencyInjection.NamedParameterOverloads,EmbeddedServer.DependencyInjection.ResolveOptions)">
+             <summary>
+             Attempts to predict whether a given type can be resolved with the supplied constructor parameters options.
+            
+             Parameters are used in conjunction with normal container resolution to find the most suitable constructor (if one exists).
+             All user supplied parameters must exist in at least one resolvable constructor of RegisterType or resolution will fail.
+             
+             Note: Resolution may still fail if user defined factory registrations fail to construct objects when called.
+             </summary>
+             <typeparam name="ResolveType">Type to resolve</typeparam>
+             <param name="parameters">User supplied named parameter overloads</param>
+             <param name="options">Resolution options</param>
+             <returns>Bool indicating whether the type can be resolved</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.CanResolve``1(System.String,EmbeddedServer.DependencyInjection.NamedParameterOverloads,EmbeddedServer.DependencyInjection.ResolveOptions)">
+             <summary>
+             Attempts to predict whether a given named type can be resolved with the supplied constructor parameters options.
+            
+             Parameters are used in conjunction with normal container resolution to find the most suitable constructor (if one exists).
+             All user supplied parameters must exist in at least one resolvable constructor of RegisterType or resolution will fail.
+             
+             Note: Resolution may still fail if user defined factory registrations fail to construct objects when called.
+             </summary>
+             <typeparam name="ResolveType">Type to resolve</typeparam>
+             <param name="name">Name of registration</param>
+             <param name="parameters">User supplied named parameter overloads</param>
+             <param name="options">Resolution options</param>
+             <returns>Bool indicating whether the type can be resolved</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.TryResolve(System.Type,System.Object@)">
+            <summary>
+            Attempts to resolve a type using the default options
+            </summary>
+            <param name="resolveType">Type to resolve</param>
+            <param name="resolvedType">Resolved type or default if resolve fails</param>
+            <returns>True if resolved successfully, false otherwise</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.TryResolve(System.Type,EmbeddedServer.DependencyInjection.ResolveOptions,System.Object@)">
+            <summary>
+            Attempts to resolve a type using the given options
+            </summary>
+            <param name="resolveType">Type to resolve</param>
+            <param name="options">Resolution options</param>
+            <param name="resolvedType">Resolved type or default if resolve fails</param>
+            <returns>True if resolved successfully, false otherwise</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.TryResolve(System.Type,System.String,System.Object@)">
+            <summary>
+            Attempts to resolve a type using the default options and given name
+            </summary>
+            <param name="resolveType">Type to resolve</param>
+            <param name="name">Name of registration</param>
+            <param name="resolvedType">Resolved type or default if resolve fails</param>
+            <returns>True if resolved successfully, false otherwise</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.TryResolve(System.Type,System.String,EmbeddedServer.DependencyInjection.ResolveOptions,System.Object@)">
+            <summary>
+            Attempts to resolve a type using the given options and name
+            </summary>
+            <param name="resolveType">Type to resolve</param>
+            <param name="name">Name of registration</param>
+            <param name="options">Resolution options</param>
+            <param name="resolvedType">Resolved type or default if resolve fails</param>
+            <returns>True if resolved successfully, false otherwise</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.TryResolve(System.Type,EmbeddedServer.DependencyInjection.NamedParameterOverloads,System.Object@)">
+            <summary>
+            Attempts to resolve a type using the default options and supplied constructor parameters
+            </summary>
+            <param name="resolveType">Type to resolve</param>
+            <param name="parameters">User specified constructor parameters</param>
+            <param name="resolvedType">Resolved type or default if resolve fails</param>
+            <returns>True if resolved successfully, false otherwise</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.TryResolve(System.Type,System.String,EmbeddedServer.DependencyInjection.NamedParameterOverloads,System.Object@)">
+            <summary>
+            Attempts to resolve a type using the default options and supplied name and constructor parameters
+            </summary>
+            <param name="resolveType">Type to resolve</param>
+            <param name="name">Name of registration</param>
+            <param name="parameters">User specified constructor parameters</param>
+            <param name="resolvedType">Resolved type or default if resolve fails</param>
+            <returns>True if resolved successfully, false otherwise</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.TryResolve(System.Type,EmbeddedServer.DependencyInjection.NamedParameterOverloads,EmbeddedServer.DependencyInjection.ResolveOptions,System.Object@)">
+            <summary>
+            Attempts to resolve a type using the supplied options and constructor parameters
+            </summary>
+            <param name="resolveType">Type to resolve</param>
+            <param name="parameters">User specified constructor parameters</param>
+            <param name="options">Resolution options</param>
+            <param name="resolvedType">Resolved type or default if resolve fails</param>
+            <returns>True if resolved successfully, false otherwise</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.TryResolve(System.Type,System.String,EmbeddedServer.DependencyInjection.NamedParameterOverloads,EmbeddedServer.DependencyInjection.ResolveOptions,System.Object@)">
+            <summary>
+            Attempts to resolve a type using the supplied name, options and constructor parameters
+            </summary>
+            <param name="resolveType">Type to resolve</param>
+            <param name="name">Name of registration</param>
+            <param name="parameters">User specified constructor parameters</param>
+            <param name="options">Resolution options</param>
+            <param name="resolvedType">Resolved type or default if resolve fails</param>
+            <returns>True if resolved successfully, false otherwise</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.TryResolve``1(``0@)">
+            <summary>
+            Attempts to resolve a type using the default options
+            </summary>
+            <typeparam name="ResolveType">Type to resolve</typeparam>
+            <param name="resolvedType">Resolved type or default if resolve fails</param>
+            <returns>True if resolved successfully, false otherwise</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.TryResolve``1(EmbeddedServer.DependencyInjection.ResolveOptions,``0@)">
+            <summary>
+            Attempts to resolve a type using the given options
+            </summary>
+            <typeparam name="ResolveType">Type to resolve</typeparam>
+            <param name="options">Resolution options</param>
+            <param name="resolvedType">Resolved type or default if resolve fails</param>
+            <returns>True if resolved successfully, false otherwise</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.TryResolve``1(System.String,``0@)">
+            <summary>
+            Attempts to resolve a type using the default options and given name
+            </summary>
+            <typeparam name="ResolveType">Type to resolve</typeparam>
+            <param name="name">Name of registration</param>
+            <param name="resolvedType">Resolved type or default if resolve fails</param>
+            <returns>True if resolved successfully, false otherwise</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.TryResolve``1(System.String,EmbeddedServer.DependencyInjection.ResolveOptions,``0@)">
+            <summary>
+            Attempts to resolve a type using the given options and name
+            </summary>
+            <typeparam name="ResolveType">Type to resolve</typeparam>
+            <param name="name">Name of registration</param>
+            <param name="options">Resolution options</param>
+            <param name="resolvedType">Resolved type or default if resolve fails</param>
+            <returns>True if resolved successfully, false otherwise</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.TryResolve``1(EmbeddedServer.DependencyInjection.NamedParameterOverloads,``0@)">
+            <summary>
+            Attempts to resolve a type using the default options and supplied constructor parameters
+            </summary>
+            <typeparam name="ResolveType">Type to resolve</typeparam>
+            <param name="parameters">User specified constructor parameters</param>
+            <param name="resolvedType">Resolved type or default if resolve fails</param>
+            <returns>True if resolved successfully, false otherwise</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.TryResolve``1(System.String,EmbeddedServer.DependencyInjection.NamedParameterOverloads,``0@)">
+            <summary>
+            Attempts to resolve a type using the default options and supplied name and constructor parameters
+            </summary>
+            <typeparam name="ResolveType">Type to resolve</typeparam>
+            <param name="name">Name of registration</param>
+            <param name="parameters">User specified constructor parameters</param>
+            <param name="resolvedType">Resolved type or default if resolve fails</param>
+            <returns>True if resolved successfully, false otherwise</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.TryResolve``1(EmbeddedServer.DependencyInjection.NamedParameterOverloads,EmbeddedServer.DependencyInjection.ResolveOptions,``0@)">
+            <summary>
+            Attempts to resolve a type using the supplied options and constructor parameters
+            </summary>
+            <typeparam name="ResolveType">Type to resolve</typeparam>
+            <param name="parameters">User specified constructor parameters</param>
+            <param name="options">Resolution options</param>
+            <param name="resolvedType">Resolved type or default if resolve fails</param>
+            <returns>True if resolved successfully, false otherwise</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.TryResolve``1(System.String,EmbeddedServer.DependencyInjection.NamedParameterOverloads,EmbeddedServer.DependencyInjection.ResolveOptions,``0@)">
+            <summary>
+            Attempts to resolve a type using the supplied name, options and constructor parameters
+            </summary>
+            <typeparam name="ResolveType">Type to resolve</typeparam>
+            <param name="name">Name of registration</param>
+            <param name="parameters">User specified constructor parameters</param>
+            <param name="options">Resolution options</param>
+            <param name="resolvedType">Resolved type or default if resolve fails</param>
+            <returns>True if resolved successfully, false otherwise</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.ResolveAll(System.Type,System.Boolean)">
+            <summary>
+            Returns all registrations of a type
+            </summary>
+            <param name="resolveType">Type to resolveAll</param>
+            <param name="includeUnnamed">Whether to include un-named (default) registrations</param>
+            <returns>IEnumerable</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.ResolveAll(System.Type)">
+            <summary>
+            Returns all registrations of a type, both named and unnamed
+            </summary>
+            <param name="resolveType">Type to resolveAll</param>
+            <returns>IEnumerable</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.ResolveAll``1(System.Boolean)">
+            <summary>
+            Returns all registrations of a type
+            </summary>
+            <typeparam name="ResolveType">Type to resolveAll</typeparam>
+            <param name="includeUnnamed">Whether to include un-named (default) registrations</param>
+            <returns>IEnumerable</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.ResolveAll``1">
+            <summary>
+            Returns all registrations of a type, both named and unnamed
+            </summary>
+            <typeparam name="ResolveType">Type to resolveAll</typeparam>
+            <returns>IEnumerable</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.BuildUp(System.Object)">
+            <summary>
+            Attempts to resolve all public property dependencies on the given object.
+            </summary>
+            <param name="input">Object to "build up"</param>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.BuildUp(System.Object,EmbeddedServer.DependencyInjection.ResolveOptions)">
+            <summary>
+            Attempts to resolve all public property dependencies on the given object using the given resolve options.
+            </summary>
+            <param name="input">Object to "build up"</param>
+            <param name="resolveOptions">Resolve options to use</param>
+        </member>
+        <member name="T:EmbeddedServer.DependencyInjection.TinyIoCContainer.ITinyIoCObjectLifetimeProvider">
+            <summary>
+            Provides custom lifetime management for ASP.Net per-request lifetimes etc.
+            </summary>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.ITinyIoCObjectLifetimeProvider.GetObject">
+            <summary>
+            Gets the stored object if it exists, or null if not
+            </summary>
+            <returns>Object instance or null</returns>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.ITinyIoCObjectLifetimeProvider.SetObject(System.Object)">
+            <summary>
+            Store the object
+            </summary>
+            <param name="value">Object to store</param>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.ITinyIoCObjectLifetimeProvider.ReleaseObject">
+            <summary>
+            Release the object
+            </summary>
+        </member>
+        <member name="P:EmbeddedServer.DependencyInjection.TinyIoCContainer.ObjectFactoryBase.AssumeConstruction">
+            <summary>
+            Whether to assume this factory successfully constructs its objects
+            
+            Generally set to true for delegate style factories as CanResolve cannot delve
+            into the delegates they contain.
+            </summary>
+        </member>
+        <member name="P:EmbeddedServer.DependencyInjection.TinyIoCContainer.ObjectFactoryBase.CreatesType">
+            <summary>
+            The type the factory instantiates
+            </summary>
+        </member>
+        <member name="P:EmbeddedServer.DependencyInjection.TinyIoCContainer.ObjectFactoryBase.Constructor">
+            <summary>
+            Constructor to use, if specified
+            </summary>
+        </member>
+        <member name="M:EmbeddedServer.DependencyInjection.TinyIoCContainer.ObjectFactoryBase.GetObject(System.Type,EmbeddedServer.DependencyInjection.TinyIoCContainer,EmbeddedServer.DependencyInjection.NamedParameterOverloads,EmbeddedServer.DependencyInjection.ResolveOptions)">
+            <summary>
+            Create the type
+            </summary>
+            <param name="requestedType">Type user requested to be resolved</param>
+            <param name="container">Container that requested the creation</param>
+            <param name="parameters">Any user parameters passed</param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EmbeddedServer.DependencyInjection.TinyIoCContainer.MultiInstanceFactory">
+            <summary>
+            IObjectFactory that creates new instances of types for each resolution
+            </summary>
+        </member>
+        <member name="T:EmbeddedServer.DependencyInjection.TinyIoCContainer.DelegateFactory">
+            <summary>
+            IObjectFactory that invokes a specified delegate to construct the object
+            </summary>
+        </member>
+        <member name="T:EmbeddedServer.DependencyInjection.TinyIoCContainer.WeakDelegateFactory">
+            <summary>
+            IObjectFactory that invokes a specified delegate to construct the object
+            Holds the delegate using a weak reference
+            </summary>
+        </member>
+        <member name="T:EmbeddedServer.DependencyInjection.TinyIoCContainer.InstanceFactory">
+            <summary>
+            Stores an particular instance to return for a type
+            </summary>
+        </member>
+        <member name="T:EmbeddedServer.DependencyInjection.TinyIoCContainer.WeakInstanceFactory">
+            <summary>
+            Stores an particular instance to return for a type
+            
+            Stores the instance with a weak reference
+            </summary>
+        </member>
+        <member name="T:EmbeddedServer.DependencyInjection.TinyIoCContainer.SingletonFactory">
+            <summary>
+            A factory that lazy instantiates a type and always returns the same instance
+            </summary>
+        </member>
+        <member name="T:EmbeddedServer.DependencyInjection.TinyIoCContainer.CustomObjectLifetimeFactory">
+            <summary>
+            A factory that offloads lifetime to an external lifetime provider
+            </summary>
+        </member>
+        <member name="P:EmbeddedServer.DependencyInjection.TinyIoCContainer.Current">
+            <summary>
+            Lazy created Singleton instance of the container for simple scenarios
+            </summary>
+        </member>
+        <member name="M:EmbeddedServer.InternalExtensions.Between(System.String,System.String,System.String)">
+            <summary>
+            Determines whether the this string instance starts and ends with the specified strings.
+            </summary>
+            <param name="source"></param>
+            <param name="startsWithStr">The string to compare to the substring at the start of this instance.</param>
+            <param name="endsWithStr">The string to compare to the substring at the end of this instance.</param>
+        </member>
+        <member name="T:EmbeddedServer.Hosting.IConfiguration">
+            <summary>
+            Represents a <see cref="T:EmbeddedServer.Hosting.IWebHost"/> configuration.
+            </summary>
+        </member>
+        <member name="P:EmbeddedServer.Hosting.IConfiguration.Uris">
+            <summary>
+            Uri prefixes for web server to bind to.
+            </summary>
+        </member>
+        <member name="P:EmbeddedServer.Hosting.IConfiguration.RootContainer">
+            <summary>
+            The root IoC container.
+            </summary>
+        </member>
+        <member name="P:EmbeddedServer.Hosting.IConfiguration.Middlewares">
+            <summary>
+            Registered middleware types.
+            </summary>
+        </member>
+        <member name="P:EmbeddedServer.Hosting.IConfiguration.JsonSerializer">
+            <summary>
+            Registered JsonSerializer. Can be overridden when building web host using 
+            the .UseJsonSerializer() extension method.
+            </summary>
+        </member>
+        <member name="P:EmbeddedServer.Hosting.IConfiguration.ExceptionHandler">
+            <summary>
+            If set, will be used to handle unhandled exceptions.
+            </summary>
+        </member>
+        <member name="M:EmbeddedServer.Hosting.IConfiguration.Validate">
+            <summary>
+            Ensures this configuration instance is valid.
+            </summary>
+        </member>
+        <member name="T:EmbeddedServer.Hosting.IWebHost">
+            <summary>
+            Represents a configured web host.
+            </summary>
+        </member>
+        <member name="M:EmbeddedServer.Hosting.IWebHost.StartAsync">
+            <summary>
+            Runs a web application and block the calling thread until host shutdown.
+            </summary>
+        </member>
+        <member name="M:EmbeddedServer.Hosting.IWebHost.StopAsync">
+            <summary>
+            Attempts to gracefully stop the host.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmbeddedServer.Hosting.IWebHostBuilder.ConfigureServices(System.Action{EmbeddedServer.DependencyInjection.TinyIoCContainer})">
+            <summary>
+            Can be used to configure services using the root DI container for the <see cref="T:EmbeddedServer.Hosting.IWebHost"/> being built.
+            </summary>
+            <param name="configure">Action to configure services using the root DI container for the <see cref="T:EmbeddedServer.Hosting.IWebHost"/> being built.</param>
+        </member>
+        <member name="M:EmbeddedServer.Hosting.IWebHostBuilder.UseUris(System.String[])">
+            <summary>
+            Specify the uris the <see cref="T:EmbeddedServer.Hosting.IWebHost"/> will listen on.
+            </summary>
+            <param name="uris">The uris the hosted application will listen on.</param>
+        </member>
+        <member name="M:EmbeddedServer.Hosting.IWebHostBuilder.Use``1">
+            <summary>
+            Add a middleware to the request pipeline on the <see cref="T:EmbeddedServer.Hosting.IWebHost"/> being built.
+            </summary>
+            <typeparam name="T">Middleware type.</typeparam>
+        </member>
+        <member name="M:EmbeddedServer.Hosting.IWebHostBuilder.Use(EmbeddedServer.Formatting.IJsonSerializer)">
+            <summary>
+            An implementation of a <see cref="T:EmbeddedServer.Formatting.IJsonSerializer"/> that the <see cref="T:EmbeddedServer.Hosting.IWebHost"/> will use. This is required.
+            </summary>
+            <param name="jsonSerializer"><see cref="T:EmbeddedServer.Formatting.IJsonSerializer"/> implementation</param>
+        </member>
+        <member name="M:EmbeddedServer.Hosting.IWebHostBuilder.Use(EmbeddedServer.IExceptionHandler)">
+            <summary>
+            An implementation of a <see cref="T:EmbeddedServer.IExceptionHandler"/> that the <see cref="T:EmbeddedServer.Hosting.IWebHost"/> will use to report
+            unhandled exceptions and exceptions in the request pipeline.
+            </summary>
+        </member>
+        <member name="M:EmbeddedServer.Hosting.IWebHostBuilder.Build">
+            <summary>
+            Build the <see cref="T:EmbeddedServer.Hosting.IWebHost"/>.
+            </summary>
+        </member>
+        <member name="M:EmbeddedServer.Hosting.IWebServer.StartAsync(System.Threading.CancellationToken)">
+            <summary>
+            Starts this web server instance.
+            </summary>
+            <param name="cancellationToken">Cancelling this token will stop the web server.</param>
+        </member>
+        <member name="M:EmbeddedServer.Hosting.IWebServer.StopAsync">
+            <summary>
+            Stops this web server instance.
+            </summary>
+        </member>
+        <member name="P:EmbeddedServer.HttpContext.Request">
+            <summary>
+            Gets the System.Net.HttpListenerRequest that represents a client's request for a resource.
+            </summary>
+            <returns>An System.Net.HttpListenerRequest object that represents the client request.</returns>
+        </member>
+        <member name="P:EmbeddedServer.HttpContext.Response">
+            <summary>
+            Gets the System.Net.HttpListenerResponse object that will be sent to the client response to the client's request.
+            </summary>
+            <returns>An System.Net.HttpListenerResponse object used to send a response back to the client.</returns>
+        </member>
+        <member name="P:EmbeddedServer.HttpContext.User">
+            <summary>
+               Gets an object used to obtain identity, authentication information, and security
+               roles for the client whose request is represented by this System.Net.HttpListenerContext
+               object.
+            </summary>
+            <returns>
+               An System.Security.Principal.IPrincipal object that describes the client, or
+               null if the System.Net.HttpListener that supplied this System.Net.HttpListenerContext
+               does not require authentication.
+            </returns>
+        </member>
+        <member name="T:EmbeddedServer.Middlewares.RequestDelegate">
+            <summary>
+            A function that can process an HTTP request.
+            </summary>
+            <param name="context">The Microsoft.AspNetCore.Http.HttpContext for the request.</param>
+            <returns>A task that represents the completion of request processing.</returns>
+        </member>
+        <member name="T:EmbeddedServer.Routing.ActionDescriptor">
+            <summary>
+            Describes an endpoint or Action that can be called using HTTP.
+            </summary>
+        </member>
+        <member name="T:EmbeddedServer.Routing.ActionDescriptorProvider">
+            <summary>
+            Provides action descriptors.
+            </summary>
+        </member>
+        <member name="P:EmbeddedServer.Routing.IActionConstraint.Order">
+            <summary>
+            The constraint order.
+            </summary>
+            <remarks>
+            Constraints are grouped into stages by the value of <see cref="P:EmbeddedServer.Routing.IActionConstraint.Order"/>. See remarks on
+            <see cref="T:EmbeddedServer.Routing.IActionConstraint"/>.
+            </remarks>
+        </member>
+        <member name="T:EmbeddedServer.Routing.IActionDescriptorProvider">
+            <summary>
+            Interface for attributes which can supply a list of ActionDescriptors.
+            </summary>
+        </member>
+        <member name="T:EmbeddedServer.Routing.IRouteTemplateProvider">
+            <summary>
+            Interface for attributes which can supply a route template for attribute routing.
+            </summary>
+        </member>
+        <member name="P:EmbeddedServer.Routing.IRouteTemplateProvider.Template">
+            <summary>
+            The route template. May be null.
+            </summary>
+        </member>
+    </members>
+</doc>
